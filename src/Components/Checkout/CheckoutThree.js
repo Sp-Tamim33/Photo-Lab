@@ -1,14 +1,14 @@
 import React from 'react';
-import imgOne from '../../img/imaOne.png'
+import imgThree from '../../img/imgThree.png'
 
-const Checkout = () => {
+const CheckoutThree = () => {
     return (
         <div>
             <div className="grid md:grid-cols-2 mt-3">
 
                 <div className='md:ml-8 mt-10'>
-                    <h1 className='text-3xl font-serif md:ml-10'><span className='text-blue-500 text-5xl'>P</span>opular</h1>
-                    <img src={imgOne} alt="" />
+                    <h1 className='text-3xl font-serif md:ml-10'><span className='text-blue-500 text-5xl'>S</span>pecial</h1>
+                    <img src={imgThree} alt="" />
                 </div>
                 <div class="leading-loose">
                     <form class="max-w-xl m-4 p-10 bg-white rounded shadow-xl">
@@ -43,7 +43,7 @@ const Checkout = () => {
                             <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_name" name="cus_name" type="text" required="" placeholder="Card Number MM/YY CVC" aria-label="Name" />
                         </div>
                         <div class="mt-4">
-                            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Pay $38</button>
+                            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Pay $72</button>
                         </div>
                     </form>
                 </div>
@@ -52,4 +52,4 @@ const Checkout = () => {
     );
 };
 
-export default Checkout;
+export default CheckoutThree;

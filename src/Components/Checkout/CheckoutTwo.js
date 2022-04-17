@@ -1,14 +1,14 @@
 import React from 'react';
-import imgOne from '../../img/imaOne.png'
+import imgTwo from '../../img/imgTwo.png'
 
-const Checkout = () => {
+const CheckoutTwo = () => {
     return (
         <div>
             <div className="grid md:grid-cols-2 mt-3">
 
                 <div className='md:ml-8 mt-10'>
-                    <h1 className='text-3xl font-serif md:ml-10'><span className='text-blue-500 text-5xl'>P</span>opular</h1>
-                    <img src={imgOne} alt="" />
+                    <h1 className='text-3xl font-serif md:ml-10'><span className='text-blue-500 text-5xl'>B</span>usiness</h1>
+                    <img src={imgTwo} alt="" />
                 </div>
                 <div class="leading-loose">
                     <form class="max-w-xl m-4 p-10 bg-white rounded shadow-xl">
@@ -26,7 +26,7 @@ const Checkout = () => {
                             <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_email" name="cus_email" type="text" required="" placeholder="Street" aria-label="Email" />
                         </div>
                         <div class="mt-2">
-                            <label class="hidden text-sm text-gray-600" for="cus_email">City</label>
+                            <label class="hidden text-sm  text-gray-600" for="cus_email">City</label>
                             <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_email" name="cus_email" type="text" required="" placeholder="City" aria-label="Email" />
                         </div>
                         <div class="inline-block mt-2 w-1/2 pr-1">
@@ -43,7 +43,7 @@ const Checkout = () => {
                             <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_name" name="cus_name" type="text" required="" placeholder="Card Number MM/YY CVC" aria-label="Name" />
                         </div>
                         <div class="mt-4">
-                            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Pay $38</button>
+                            <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Pay $56</button>
                         </div>
                     </form>
                 </div>
@@ -52,4 +52,4 @@ const Checkout = () => {
     );
 };
 
-export default Checkout;
+export default CheckoutTwo;

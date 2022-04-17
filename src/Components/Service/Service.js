@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import imgOne from '../../img/imaOne.png';
+import imgTwo from '../../img/imgTwo.png';
+import imgThree from '../../img/imgThree.png'
 
 const Service = () => {
     return (
@@ -13,9 +16,12 @@ const Service = () => {
                     </div>
                     <div class="flex flex-wrap -m-4">
                         <div class="p-4 xl:w-1/4 md:w-1/2 w-full md:ml-[12rem]">
-                            <div class="h-full p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden">
+                            <div class="h-full hover:shadow-xl p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden">
                                 <span class="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">POPULAR</span>
                                 <h2 class="text-sm tracking-widest title-font mb-1 font-medium">PRO</h2>
+                                <div>
+                                    <img src={imgOne} alt="" />
+                                </div>
                                 <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
                                     <span>$38</span>
                                     <span class="text-lg ml-1 font-normal text-gray-500">/mo</span>
@@ -57,8 +63,9 @@ const Service = () => {
                             </div>
                         </div>
                         <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
-                            <div class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+                            <div class="h-full hover:shadow-xl p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
                                 <h2 class="text-sm tracking-widest title-font mb-1 font-medium">BUSINESS</h2>
+                                <div><img src={imgTwo} alt="" /></div>
                                 <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
                                     <span>$56</span>
                                     <span class="text-lg ml-1 font-normal text-gray-500">/mo</span>
@@ -98,7 +105,7 @@ const Service = () => {
                                         </svg>
                                     </span>Other's function
                                 </p>
-                                <Link to='/checkout' class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Checkout
+                                <Link to='/checkoutTwo' class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Checkout
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
@@ -107,8 +114,9 @@ const Service = () => {
                             </div>
                         </div>
                         <div class="p-4 xl:w-1/4 md:w-1/2 w-full">
-                            <div class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+                            <div class="h-full hover:shadow-xl p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
                                 <h2 class="text-sm tracking-widest title-font mb-1 font-medium">SPECIAL</h2>
+                                <div><img src={imgThree} alt="" /></div>
                                 <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
                                     <span>$72</span>
                                     <span class="text-lg ml-1 font-normal text-gray-500">/mo</span>
@@ -148,7 +156,7 @@ const Service = () => {
                                         </svg>
                                     </span>Other's function
                                 </p>
-                                <Link to='/checkout' class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Checkout
+                                <Link to='/checkoutThree' class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Checkout
                                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                         <path d="M5 12h14M12 5l7 7-7 7"></path>
                                     </svg>
