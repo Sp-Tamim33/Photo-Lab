@@ -8,7 +8,8 @@ import Checkout from './Components/Checkout/Checkout';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
-import NotFound from './Components/NotFound/NotFound';
+import NF404 from './Components/NotFound/NF404';
+
 import Signup from './Components/Signup/Signup';
 
 
@@ -24,7 +25,7 @@ function App() {
         <Route path='/login' element={<Login></Login>} />
         <Route path='/signup' element={<Signup></Signup>} />
         <Route path='/checkout' element={<Checkout></Checkout>} />
-        <Route path='*' element={<NotFound></NotFound>} />
+        <Route path='*' element={<NF404></NF404>} />
       </Routes>
     </div>
   );
