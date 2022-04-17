@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div>
-            <nav className=" border-gray-200 sm:px-4 py-8 sticky top-0">
+            <nav className=" border-gray-200 sm:px-4 py-6 sticky top-0">
                 <div className="container flex flex-wrap justify-between items-center mx-auto px-10">
                     <a href="/home" className="flex items-center">
                         <span className="self-center font-serif font-semibold whitespace-nowrap text-4xl"> <span className='text-blue-600'>S</span>p-<span className='text-blue-600'>P</span>hotoLab</span>
@@ -26,7 +26,7 @@ const Header = () => {
                                 <Link to="/blog" className="text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:p-0 hover:text-blue-600">Blog</Link>
                             </li>
                             <li>
-                                <Link to="/login" className="text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:p-0 hover:text-blue-600">Login</Link>
+                                <Link to="/login" className=" text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:px-1 md:mt-[-7px] md:bg-blue-500 md:text-white rounded-lg hover:text-blue-600">Login</Link>
                             </li>
                             <li>
                                 <Link to="/signup" className="text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:p-0 hover:text-blue-600">SignUp</Link>
