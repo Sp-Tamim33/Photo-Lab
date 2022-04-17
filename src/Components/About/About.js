@@ -13,7 +13,6 @@ const About = () => {
                     </div>
                     <div className="order-2 lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
                         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><span className='text-blue-500'>A</span>bout Me
-
                         </h1>
                         <p className="mb-8 leading-relaxed md:w-[600px]">Hey ! This is <span className='text-blue-500'>Sp Tamim</span> . From Bangladesh I'm a professional photographer ! I have 3 year experience in Photography. It would be nice if your photographs could do all the talking for you, but occasionally you need to use words. The about page on your website and your Instagram profile are just some of the places photographers need to have a bio. A good bio provides photographers with a powerful way to showcase their professional experience and convey their personalities to potential clients.</p>
                         <div className="flex justify-center">
