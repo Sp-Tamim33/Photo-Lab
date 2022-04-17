@@ -1,7 +1,11 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import auth from '../Firebase/Firebase.init';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
     return (
         <div>
             <nav className=" border-gray-200 sm:px-4 py-6 sticky top-0">
@@ -25,12 +29,21 @@ const Header = () => {
                             <li>
                                 <Link to="/blog" className="text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:p-0 hover:text-blue-600">Blog</Link>
                             </li>
-                            <li>
-                                <Link to="/login" className=" text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:px-1 md:mt-[-7px] md:bg-blue-500 md:text-white rounded-lg hover:text-blue-600">Login</Link>
-                            </li>
-                            <li>
-                                <Link to="/signup" className="text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:p-0 hover:text-blue-600">SignUp</Link>
-                            </li>
+                            {
+                                user ?
+                                    <li>
+                                        <button onClick={() => signOut(auth)} className=" text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:px-1 md:mt-[-7px] md:bg-blue-500 md:text-white rounded-lg hover:text-blue-600">SignOut</button>
+                                    </li>
+                                    :
+                                    <div className='flex'>
+                                        <li>
+                                            <Link to="/login" className=" text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:px-1 md:mt-[-7px] md:mr-2 md:bg-blue-500 md:text-white rounded-lg hover:text-blue-600">Login</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/signup" className="text-xl block py-2 pr-4 pl-3 text-black md:hover:bg-transparent md:border-0 md:p-0 hover:text-blue-600">SignUp</Link>
+                                        </li>
+                                    </div>
+                            }
                         </ul>
                     </div>
                 </div>

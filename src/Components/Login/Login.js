@@ -3,8 +3,14 @@ import './AuthForm.css';
 
 import GoogleLogo from '../../img/google.svg'
 import { Link } from 'react-router-dom';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../Firebase/Firebase.init';
 
 const Login = () => {
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
+
+
+
     return (
         <div>
             <div className='auth-form-container '>
@@ -47,7 +53,7 @@ const Login = () => {
                         <div className='line-right' />
                     </div>
                     <div className='input-wrapper'>
-                        <button className='google-auth'>
+                        <button onClick={() => signInWithGoogle()} className='google-auth'>
                             <img src={GoogleLogo} alt='' />
                             <p> Continue with Google </p>
                         </button>
