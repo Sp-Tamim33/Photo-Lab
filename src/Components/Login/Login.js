@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GoogleLogo from '../../img/google.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../Firebase/Firebase.init';
 
 
@@ -20,6 +20,7 @@ const Login = () => {
         password: "",
         general: "",
     })
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
     const [signInWithGoogle, googleUser, GoogleLoding, googleError] = useSignInWithGoogle(auth);
     const [signInWithEmail, user, loading, hookError] = useSignInWithEmailAndPassword(auth);
 
@@ -69,31 +70,34 @@ const Login = () => {
     useEffect(() => {
         if (user || googleUser) {
             navigate(from);
+            toast('account logged !')
         }
     }, [user]);
 
     useEffect(() => {
         const error = hookError || googleError;
         if (error) {
+            // console.log(error);
             switch (error?.code) {
-                case "auth/invalid-email":
+                case "auth/wrong-email":
                     toast("Invalid email");
                     break;
 
-                case "auth/invalid-password":
+                case "auth/wrong-password":
                     toast("Wrong password !!")
                     break;
                 default:
                     toast("something went wrong !")
             }
         }
-        <ToastContainer />
+
     }, [hookError, googleError])
 
 
     return (
         <div>
             <div className='auth-form-container '>
+                <ToastContainer />
                 <div className='auth-form'>
                     <h1 className="text-3xl">Login</h1>
                     <form onSubmit={handleLogin}>
@@ -127,6 +131,13 @@ const Login = () => {
                     <p className='redirect'>
                         New to SP's PhotoLab ?{" "}
                         <Link to='/signup' className='underline text-blue-500'>Create New Account</Link>
+                    </p>
+                    <p className='redirect'>
+                        Forgotten Password ?{" "}
+                        <button onClick={async () => {
+                            await sendPasswordResetEmail(userInfo.email);
+                            alert('Sent email');
+                        }} className='underline text-blue-500'>Forgot password</button>
                     </p>
                     <div className='horizontal-divider'>
                         <div className='line-left' />
