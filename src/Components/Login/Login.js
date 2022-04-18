@@ -1,14 +1,94 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AuthForm.css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import GoogleLogo from '../../img/google.svg'
-import { Link } from 'react-router-dom';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../Firebase/Firebase.init';
 
-const Login = () => {
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
 
+
+
+const Login = () => {
+    const [userInfo, setUserInfo] = useState({
+        email: "",
+        password: "",
+    })
+    const [errors, setErrors] = useState({
+        email: "",
+        password: "",
+        general: "",
+    })
+    const [signInWithGoogle, googleUser, GoogleLoding, googleError] = useSignInWithGoogle(auth);
+    const [signInWithEmail, user, loading, hookError] = useSignInWithEmailAndPassword(auth);
+
+    const handleEmailChange = (e) => {
+        const emailRegex = /\S+@\S+\.\S+/;
+        const validEmail = emailRegex.test(e.target.value);
+
+        if (validEmail) {
+            setUserInfo({ ...userInfo, email: e.target.value })
+            setErrors({ ...errors, email: "" })
+        } else {
+            setErrors({ ...errors, email: "Invalid email" })
+            setUserInfo({ ...userInfo, email: "" })
+        }
+
+
+
+        // setEmail(e.target.value);
+    }
+    const handlePasswordChange = (e) => {
+        const passwordRegex = /.{6,}/;
+        const validPassword = passwordRegex.test(e.target.value);
+
+        if (validPassword) {
+            setUserInfo({ ...userInfo, password: e.target.value });
+            setErrors({ ...errors, password: "" });
+        } else {
+            setErrors({ ...errors, password: "Minimum 6 characters!" });
+            setUserInfo({ ...userInfo, password: "" })
+        }
+
+    }
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        // console.log(userInfo)
+
+        signInWithEmail(userInfo.email, userInfo.password);
+
+    }
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (user || googleUser) {
+            navigate(from);
+        }
+    }, [user]);
+
+    useEffect(() => {
+        const error = hookError || googleError;
+        if (error) {
+            switch (error?.code) {
+                case "auth/invalid-email":
+                    toast("Invalid email");
+                    break;
+
+                case "auth/invalid-password":
+                    toast("Wrong password !!")
+                    break;
+                default:
+                    toast("something went wrong !")
+            }
+        }
+        <ToastContainer />
+    }, [hookError, googleError])
 
 
     return (
@@ -16,27 +96,28 @@ const Login = () => {
             <div className='auth-form-container '>
                 <div className='auth-form'>
                     <h1 className="text-3xl">Login</h1>
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className='input-field'>
                             <label htmlFor='email'>Email</label>
-                            <div className='input-wrapper'>
+                            <div onChange={handleEmailChange} className='input-wrapper'>
                                 <input
                                     type='text'
                                     name='email'
                                     id='email'
                                 />
                             </div>
+                            {errors?.email && <p className="error">{errors.email}</p>}
                         </div>
                         <div className='input-field'>
                             <label htmlFor='password'>Password</label>
-                            <div className='input-wrapper'>
+                            <div onChange={handlePasswordChange} className='input-wrapper'>
                                 <input
                                     type='password'
                                     name='password'
                                     id='password'
                                 />
                             </div>
-
+                            {errors?.password && <p className="error">{errors.password}</p>}
                         </div>
                         <button
                             type='submit' className='auth-form-submit'>

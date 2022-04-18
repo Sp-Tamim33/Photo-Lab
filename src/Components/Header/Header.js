@@ -10,7 +10,7 @@ const Header = () => {
         <div>
             <nav className=" border-gray-200 sm:px-4 py-6 sticky top-0">
                 <div className="container flex flex-wrap justify-between items-center mx-auto px-10">
-                    <a href="/home" className="flex items-center">
+                    <a href="/" className="flex items-center">
                         <span className="self-center font-serif font-semibold whitespace-nowrap text-4xl"> <span className='text-blue-600'>S</span>p-<span className='text-blue-600'>P</span>hotoLab</span>
                     </a>
                     <button data-dropdown-toggle="mobile-menu" id="dropdownDefault" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
